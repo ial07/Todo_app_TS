@@ -63,7 +63,7 @@ const InputComp: React.FC<InputCompProps> = ({
           className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-600 dark:text-neutral-500 cursor-pointer"
           tabIndex={-1}
         >
-          {showPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
+          {showPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
         </button>
       )}
 
