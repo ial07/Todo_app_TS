@@ -1,0 +1,467 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Font-face for SF Pro */
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+  font-weight: 400; /* adjust if you have multiple weights */
+  font-style: normal;
+  font-display: swap; /* ensures font loads smoothly */
+}
+
+/* Define custom properties for colors, spacing, and border radius */
+:root {
+  /* Neutral Colors */
+  --neutral-50: #fdfdfd;
+  --neutral-100: #fafafa;
+  --neutral-200: #f5f5f5;
+  --neutral-300: #e9eaeb;
+  --neutral-400: #d5d7da;
+  --neutral-500: #a4a7ae;
+  --neutral-600: #717680;
+  --neutral-700: #535862;
+  --neutral-800: #414651;
+  --neutral-900: #252b37;
+  --neutral-1000: #181d27;
+  --neutral-1100: #0a0d12;
+
+  /* Primary Color */
+  --primary: #0c4bca;
+
+  /* Accent Colors */
+  --accent-red: #d9206e;
+  --accent-green: #079455;
+  --accent-yellow: #fdb022;
+
+  /* Base Colors */
+  --base-white: #ffffff;
+  --base-black: #000000;
+
+  /* Spacing */
+  --spacing-none: 0rem;
+  --spacing-xxs: 0.125rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.375rem;
+  --spacing-md: 0.5rem;
+  --spacing-lg: 0.75rem;
+  --spacing-xl: 1rem;
+  --spacing-2xl: 1.25rem;
+  --spacing-3xl: 1.5rem;
+  --spacing-4xl: 2rem;
+  --spacing-5xl: 2.5rem;
+  --spacing-6xl: 3rem;
+  --spacing-7xl: 4rem;
+  --spacing-8xl: 5rem;
+  --spacing-9xl: 6rem;
+  --spacing-10xl: 8rem;
+  --spacing-11xl: 8.75rem;
+
+  /* Border Radius */
+  --radius-none: 0rem;
+  --radius-xxs: 0.125rem;
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.25rem;
+  --radius-4xl: 1.5rem;
+  --radius-full: 9999px;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  /* Base typography */
+  html {
+    font-family: "SF Pro";
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--neutral-1100); /* Neutral-1100 */
+  }
+
+  /* Dark mode base styles */
+  .dark {
+    color: var(--neutral-50); /* Neutral-50 */
+    background-color: var(--base-black); /* Base-black */
+  }
+
+  /* Typography scale */
+  .display-3xl {
+    font-size: 3.75rem;
+    line-height: 4.5rem;
+    letter-spacing: -0.02em;
+  }
+  .display-2xl {
+    font-size: 3rem;
+    line-height: 3.75rem;
+    letter-spacing: -0.02em;
+  }
+  .display-xl {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    letter-spacing: -0.02em;
+  }
+  .display-lg {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    letter-spacing: -0.02em;
+  }
+  .display-md {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  .display-sm {
+    font-size: 1.75rem;
+    line-height: 2.375rem;
+  }
+  .display-xs {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+  }
+  .text-xl {
+    font-size: 1.25rem;
+    line-height: 2.125rem;
+  }
+  .text-lg {
+    font-size: 1.125rem;
+    line-height: 2rem;
+  }
+  .text-md {
+    font-size: 1rem;
+    line-height: 1.875rem;
+  }
+  .text-sm {
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+  }
+  .text-xs {
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+  }
+
+  /* Font weights */
+  .font-regular {
+    font-weight: 400;
+  }
+  .font-medium {
+    font-weight: 500;
+  }
+  .font-semibold {
+    font-weight: 600;
+  }
+  .font-bold {
+    font-weight: 700;
+  }
+  .font-extrabold {
+    font-weight: 800;
+  }
+}
+
+@layer utilities {
+  /* Custom color utilities */
+  .text-neutral-50 {
+    color: var(--neutral-50);
+  }
+  .text-neutral-100 {
+    color: var(--neutral-100);
+  }
+  .text-neutral-200 {
+    color: var(--neutral-200);
+  }
+  .text-neutral-300 {
+    color: var(--neutral-300);
+  }
+  .text-neutral-400 {
+    color: var(--neutral-400);
+  }
+  .text-neutral-500 {
+    color: var(--neutral-500);
+  }
+  .text-neutral-600 {
+    color: var(--neutral-600);
+  }
+  .text-neutral-700 {
+    color: var(--neutral-700);
+  }
+  .text-neutral-800 {
+    color: var(--neutral-800);
+  }
+  .text-neutral-900 {
+    color: var(--neutral-900);
+  }
+  .text-neutral-1000 {
+    color: var(--neutral-1000);
+  }
+  .text-neutral-1100 {
+    color: var(--neutral-1100);
+  }
+  .text-primary {
+    color: var(--primary);
+  }
+  .text-accent-red {
+    color: var(--accent-red);
+  }
+  .text-accent-green {
+    color: var(--accent-green);
+  }
+  .text-accent-yellow {
+    color: var(--accent-yellow);
+  }
+  .text-base-white {
+    color: var(--base-white);
+  }
+  .text-base-black {
+    color: var(--base-black);
+  }
+
+  .bg-neutral-50 {
+    background-color: var(--neutral-50);
+  }
+  .bg-neutral-100 {
+    background-color: var(--neutral-100);
+  }
+  .bg-neutral-200 {
+    background-color: var(--neutral-200);
+  }
+  .bg-neutral-300 {
+    background-color: var(--neutral-300);
+  }
+  .bg-neutral-400 {
+    background-color: var(--neutral-400);
+  }
+  .bg-neutral-500 {
+    background-color: var(--neutral-500);
+  }
+  .bg-neutral-600 {
+    background-color: var(--neutral-600);
+  }
+  .bg-neutral-700 {
+    background-color: var(--neutral-700);
+  }
+  .bg-neutral-800 {
+    background-color: var(--neutral-800);
+  }
+  .bg-neutral-900 {
+    background-color: var(--neutral-900);
+  }
+  .bg-neutral-1000 {
+    background-color: var(--neutral-1000);
+  }
+  .bg-neutral-1100 {
+    background-color: var(--neutral-1100);
+  }
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .bg-accent-red {
+    background-color: var(--accent-red);
+  }
+  .bg-accent-green {
+    background-color: var(--accent-green);
+  }
+  .bg-accent-yellow {
+    background-color: var(--accent-yellow);
+  }
+  .bg-base-white {
+    background-color: var(--base-white);
+  }
+  .bg-base-black {
+    background-color: var(--base-black);
+  }
+
+  /* Custom spacing utilities */
+  .p-none {
+    padding: var(--spacing-none);
+  }
+  .p-xxs {
+    padding: var(--spacing-xxs);
+  }
+  .p-xs {
+    padding: var(--spacing-xs);
+  }
+  .p-sm {
+    padding: var(--spacing-sm);
+  }
+  .p-md {
+    padding: var(--spacing-md);
+  }
+  .p-lg {
+    padding: var(--spacing-lg);
+  }
+  .p-xl {
+    padding: var(--spacing-xl);
+  }
+  .p-2xl {
+    padding: var(--spacing-2xl);
+  }
+  .p-3xl {
+    padding: var(--spacing-3xl);
+  }
+  .p-4xl {
+    padding: var(--spacing-4xl);
+  }
+  .p-5xl {
+    padding: var(--spacing-5xl);
+  }
+  .p-6xl {
+    padding: var(--spacing-6xl);
+  }
+  .p-7xl {
+    padding: var(--spacing-7xl);
+  }
+  .p-8xl {
+    padding: var(--spacing-8xl);
+  }
+  .p-9xl {
+    padding: var(--spacing-9xl);
+  }
+  .p-10xl {
+    padding: var(--spacing-10xl);
+  }
+  .p-11xl {
+    padding: var(--spacing-11xl);
+  }
+
+  .m-none {
+    margin: var(--spacing-none);
+  }
+  .m-xxs {
+    margin: var(--spacing-xxs);
+  }
+  .m-xs {
+    margin: var(--spacing-xs);
+  }
+  .m-sm {
+    margin: var(--spacing-sm);
+  }
+  .m-md {
+    margin: var(--spacing-md);
+  }
+  .m-lg {
+    margin: var(--spacing-lg);
+  }
+  .m-xl {
+    margin: var(--spacing-xl);
+  }
+  .m-2xl {
+    margin: var(--spacing-2xl);
+  }
+  .m-3xl {
+    margin: var(--spacing-3xl);
+  }
+  .m-4xl {
+    margin: var(--spacing-4xl);
+  }
+  .m-5xl {
+    margin: var(--spacing-5xl);
+  }
+  .m-6xl {
+    margin: var(--spacing-6xl);
+  }
+  .m-7xl {
+    margin: var(--spacing-7xl);
+  }
+  .m-8xl {
+    margin: var(--spacing-8xl);
+  }
+  .m-9xl {
+    margin: var(--spacing-9xl);
+  }
+  .m-10xl {
+    margin: var(--spacing-10xl);
+  }
+  .m-11xl {
+    margin: var(--spacing-11xl);
+  }
+
+  .gap-none {
+    gap: var(--spacing-none);
+  }
+  .gap-xxs {
+    gap: var(--spacing-xxs);
+  }
+  .gap-xs {
+    gap: var(--spacing-xs);
+  }
+  .gap-sm {
+    gap: var(--spacing-sm);
+  }
+  .gap-md {
+    gap: var(--spacing-md);
+  }
+  .gap-lg {
+    gap: var(--spacing-lg);
+  }
+  .gap-xl {
+    gap: var(--spacing-xl);
+  }
+  .gap-2xl {
+    gap: var(--spacing-2xl);
+  }
+  .gap-3xl {
+    gap: var(--spacing-3xl);
+  }
+  .gap-4xl {
+    gap: var(--spacing-4xl);
+  }
+  .gap-5xl {
+    gap: var(--spacing-5xl);
+  }
+  .gap-6xl {
+    gap: var(--spacing-6xl);
+  }
+  .gap-7xl {
+    gap: var(--spacing-7xl);
+  }
+  .gap-8xl {
+    gap: var(--spacing-8xl);
+  }
+  .gap-9xl {
+    gap: var(--spacing-9xl);
+  }
+  .gap-10xl {
+    gap: var(--spacing-10xl);
+  }
+  .gap-11xl {
+    gap: var(--spacing-11xl);
+  }
+
+  /* Custom border radius utilities */
+  .rounded-none {
+    border-radius: var(--radius-none);
+  }
+  .rounded-xxs {
+    border-radius: var(--radius-xxs);
+  }
+  .rounded-xs {
+    border-radius: var(--radius-xs);
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
+  }
+  .rounded-4xl {
+    border-radius: var(--radius-4xl);
+  }
+  .rounded-full {
+    border-radius: var(--radius-full);
+  }
+}
