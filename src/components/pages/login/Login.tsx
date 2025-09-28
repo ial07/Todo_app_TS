@@ -1,5 +1,6 @@
 import React from "react";
 import FormLogin from "../../container/FormLogin/FormLogin";
+import { NavLink } from "react-router-dom";
 
 const Login: React.FC = () => {
   return (
@@ -7,9 +8,9 @@ const Login: React.FC = () => {
       <FormLogin />
       <p className="text-sm md:text-md mt-3">
         Don't have an account?{" "}
-        <a href="/Register" className="text-primary font-bold">
+        <NavLink to={"/register"} className="text-primary font-bold">
           Register
-        </a>{" "}
+        </NavLink>{" "}
       </p>
     </div>
   );

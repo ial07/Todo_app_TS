@@ -1,5 +1,6 @@
 import FormRegister from "@/components/container/FormRegister/FormRegister";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Register: React.FC = () => {
   return (
@@ -7,9 +8,9 @@ const Register: React.FC = () => {
       <FormRegister />
       <p className="text-sm md:text-md mt-3">
         Already have an account?{" "}
-        <a href="/Login" className="text-primary font-bold">
+        <NavLink to="/Login" className="text-primary font-bold">
           Log In
-        </a>{" "}
+        </NavLink>{" "}
       </p>
     </div>
   );
