@@ -6,8 +6,10 @@ import type { UserRegisterTypes } from "../../../types/Auth.type";
 import { registerUser } from "@/services/auth.service";
 import type { AxiosError } from "axios";
 import type { ApiError } from "@/types/Api.type";
+import { useNavigate } from "react-router-dom";
 
 const useFormRegister = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -24,8 +26,8 @@ const useFormRegister = () => {
   >({
     mutationFn: (data: UserRegisterTypes) =>
       registerUser(data.name, data.email, data.password),
-    onSuccess: (data) => {
-      console.log(data);
+    onSuccess: () => {
+      navigate("/login");
     },
     onError: (error: Error) => {
       if ((error as AxiosError).response) {

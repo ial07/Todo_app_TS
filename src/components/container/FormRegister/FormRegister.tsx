@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { InputComp } from "../../ui/input";
 import ButtonComp from "@/components/ui/button/index";
 import useFormRegister from "./useFormRegister";
+import { toast } from "react-toastify";
 
 const FormRegister: React.FC = () => {
-  const { register, handleSubmit, errors, onSubmit, isPending, error } =
-    useFormRegister();
+  const {
+    register,
+    handleSubmit,
+    errors,
+    onSubmit,
+    isPending,
+    error,
+    isError,
+  } = useFormRegister();
 
-  console.log(error?.response?.data.message);
+  useEffect(() => {
+    if (isError) toast.error(error?.response?.data.message);
+  }, [isError, error]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-105">
@@ -46,7 +56,6 @@ const FormRegister: React.FC = () => {
       />
 
       <ButtonComp label="Submit" type="submit" fullWidth loading={isPending} />
-      <p className="text-accent-red mt-3">{error?.response?.data.message}</p>
     </form>
   );
 };
